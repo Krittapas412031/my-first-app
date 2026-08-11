@@ -1,15 +1,8 @@
-def calculate_vat(price):
-    vat = price * 0.07
-    total_price = price + vat
-    return vat, total_price
-
-# ทดลองใช้งาน
-if __name__ == "__main__":
-    try:
-        price_input = float(input("ป้อนราคาสินค้าก่อนรวม VAT (บาท): "))
-        vat_amount, net_total = calculate_vat(price_input)
-        
-        print(f"ภาษีมูลค่าเพิ่ม (7%): {vat_amount:.2f} บาท")
-        print(f"ราคาสินค้ารวม VAT ทั้งสิ้น: {net_total:.2f} บาท")
-    except ValueError:
-        print("กรุณากรอกตัวเลขเท่านั้น")
+st.title("🛒แอปพลิเคชั่นคำนวณราคาสินค้ารวม VAT 7%")
+vat = price * 0.07
+st.header(f"• ภาษีมูลค่าเพิ่ม (VAT 7%): **{vat:.2f}** บาท") 
+import streamlit as st 
+price = st.number_input("กรอกราคาสินค้า (บาท):", value=0.0) 
+net_price = price - vat
+st.write("นายกฤตภาส สายทอง เลขที่ 36  ม.4/12")
+st.header(f"• ราคาสุทธิ: {net_price:.2f} บาท")
