@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
+
     <title>โปรแกรมคำนวณราคารวม VAT 7%</title>
-    <style>
-    </style>
-</head>
-<body>
+ 
     <div class="card">
         <h2>คำนวณราคารวม VAT 7%</h2>
         <label>ราคาสินค้า (ยังไม่รวม VAT):</label>
