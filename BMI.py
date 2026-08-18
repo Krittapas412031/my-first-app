@@ -13,16 +13,16 @@ height_cm = st.number_input("Enter your height (cm): ", min_value = 1.0, value =
 if st.button("Calculate."):
 #Convert centimeters - metres
     height_m = height_cm / 100
-    BMI = weight / (height_m ** 2)
+    bmi = weight / (height_m ** 2)
     st.write("---")
     st.header(f"Your BMI is: **{BMI:.2f}**") 
 
 # classification 
-if BMI <= 18.5 < 25:
+if bmi <= 18.5 < 25:
   st.category = ("underweight (too thin)")
-elif BMI <= 25 < 30:
+elif bmi <= 25 < 30:
   st.category = ("Normal weight (perfect.)") 
-elif BMI <= 30:
+elif bmi <= 30:
   st.category = ("Overweight (a little bit fat)")
 else:
   st.category = ("Obesity.")
