@@ -9,7 +9,7 @@ height = float(input("Enter your height (cm): "))
 height_m = height / 100
 
 #calculate 
-BMI = weight / height_**2) 
+BMI = weight / height_m**2) 
 
 print(f"\nYour BMI is: {BMI:.2f}") 
 
