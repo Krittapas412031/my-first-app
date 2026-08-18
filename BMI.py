@@ -25,7 +25,7 @@ if st.button("Calculate."):
     elif bmi <= 30:
       st.info("Overweight (a little bit fat)")
     else:
-      st.error("Obesity") 
+      st.info("Obesity") 
 
 
 st.divider() 
