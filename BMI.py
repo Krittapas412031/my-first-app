@@ -1,28 +1,32 @@
 import streamlit as st
 
-print("=== BMI Calculator ===")
+#page 
+st.markdown("# :red[BMI Calculator]")
+st.write ("please input your weight to check your health") 
 
-weight = float (input("Enter your weight (kg): "))
-height = float(input("Enter your height (cm): ")) 
+#input weight and height 
+weight = st.number_input("Enter your weight (kg): ", min_Value = 1.0, value = 1.0)
+height_cm = st.number_input("Enter your height (cm): ", min_Value = 1.0, value = 1.0)
 
 #Convert centimeters - metres
-height_m = height / 100
+height_m = height_cm / 100
 
-#calculate 
+#calculate and calculate button
+if st.button("Calculate."):
 BMI = weight / (height_m ** 2) 
-
-print(f"\nYour BMI is: {BMI:.2f}") 
+st.write("---")
+st.header(f"\nYour BMI is: {BMI:.2f}") 
 
 # classification 
 if BMI <= 18.5 < 25:
-  category = "underweight"
+  st.category = ("underweight (too thin)")
 elif BMI <= 25 < 30:
-  category = "Normal weight" 
+  st.category = ("Normal weight (perfect.)") 
 elif BMI <= 30:
-  category = "Overweight"
+  st.category = ("Overweight (a little bit fat)")
 else:
-  category = "Obesity"
-  print(f"Category: {category}") 
+  st.category = ("Obesity.")
+  st.write(f"Category: {category}") 
 
 st.divider() 
 st.write("นายกฤตภาส สายทอง ม.4/12 เลขที่ 36")
