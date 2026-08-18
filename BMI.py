@@ -5,8 +5,8 @@ st.markdown("# :red[BMI Calculator]")
 st.write ("please input your weight to check your health") 
 
 #input weight and height 
-weight = st.number_input("Enter your weight (kg): ", min_Value = 1.0, value = 1.0)
-height_cm = st.number_input("Enter your height (cm): ", min_Value = 1.0, value = 1.0)
+weight = st.number_input("Enter your weight (kg): ", min_value = 1.0, value = 1.0)
+height_cm = st.number_input("Enter your height (cm): ", min_value = 1.0, value = 1.0)
 
 
 #calculate and calculate button
