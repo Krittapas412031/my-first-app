@@ -19,14 +19,14 @@ if st.button("Calculate."):
 
 # classification 
     if bmi <= 18.5 < 25:
-        st.warning = ("underweight (too thin)")
+        st.warning("underweight (too thin)")
     elif bmi <= 25 < 30:
-      st.success = ("Normal weight (perfect.)") 
+      st.success("Normal weight (perfect.)") 
     elif bmi <= 30:
-      st.info = ("Overweight (a little bit fat)")
+      st.info("Overweight (a little bit fat)")
     else:
-      st.error = ("Obesity.")
-    
+      st.error("Obesity.")
+
 
 st.divider() 
 st.write("นายกฤตภาส สายทอง ม.4/12 เลขที่ 36")
