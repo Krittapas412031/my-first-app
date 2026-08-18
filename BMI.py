@@ -13,7 +13,7 @@ height_cm = st.number_input("Enter your height (cm): ", min_value = 1.0, value =
 if st.button("Calculate."):
 #Convert centimeters - metres
     height_m = height_cm / 100
-    bmi = weight / (height_m ** 2)
+    BMI = weight / (height_m ** 2)
     st.write("---")
     st.header(f"Your BMI is: **{BMI:.2f}**") 
 
