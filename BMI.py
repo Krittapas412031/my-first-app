@@ -15,7 +15,7 @@ height_m = height_cm / 100
 if st.button("Calculate."):
 BMI = weight / (height_m ** 2) 
 st.write("---")
-st.header(f"\nYour BMI is: {BMI:.2f}") 
+st.header(f"Your BMI is: **{BMI:.2f}**") 
 
 # classification 
 if BMI <= 18.5 < 25:
