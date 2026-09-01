@@ -110,10 +110,10 @@ st.session_state.ans4_val = ans4
 # 4. Enter button
 if "start" in st.session_state and not st.session_state.get("is_ended", False):
    if st.button("📥 Enter"):
-   st.session_state.is_ended = True
-   st.rerun()
-   time.sleep(1)
-   st.rerun()
+      st.session_state.is_ended = True
+      st.rerun()
+      time.sleep(1)
+      st.rerun()
 
 # 5. Show Result dialogue
 if st.session_state.get("is_ended", False):
