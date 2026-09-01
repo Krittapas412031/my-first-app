@@ -29,7 +29,7 @@ st.session_state.is_ended = False # ปิด Dialog
 
 @st.dialog("📊 game result")
 def show_result_dialog(ans1, ans2, ans3, ans4):
-st.balloons()
+   st.balloons()
 score = 0
 u_ans1 = ans1.strip().lower()
 u_ans2 = ans2.strip().lower()
