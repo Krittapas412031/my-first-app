@@ -38,32 +38,32 @@ u_ans4 = ans4.strip().lower()
 
 # line 1 check
 if u_ans1 == "apple":
-   st.success("✅ ขอ้ 1: Correct")
+   st.success("✅ 1: Correct")
 score += 1
 else:
-st.error(f"❌ ขอ้ 1: Wrong (you use '{u_ans1}')")
+st.error(f"❌ 1: Wrong (you use '{u_ans1}')")
 
 # line 2 check
 if u_ans2 == "bone":
-   st.success("✅ ขอ้ 2: Correct")
+   st.success("✅ 2: Correct")
 score += 1
 else:
 st.error(f"❌ ขอ้ 2: Wrong (you use '{u_ans2}')")
 
 # student custom question 
 if u_ans3 == "doctor":
-   st.success("✅ ขอ้ 1: Correct")
+   st.success("✅ 3: Correct")
 score += 1
 else:
-st.error(f"❌ ขอ้ 3: Wrong (you use '{u_ans3}')")
+st.error(f"❌ 3: Wrong (you use '{u_ans3}')")
 # line 2 check
 if u_ans4 == "student":
-   st.success("✅ ขอ้ 4: Correct")
+   st.success("✅ 4: Correct")
 score += 1
 else:
-st.error(f"❌ ขอ้ 2: Wrong (you use '{u_ans4}')")
+st.error(f"❌ 4: Wrong (you use '{u_ans4}')")
 
-st.info(f"🏆 ไดค้ ะแนนรวม: {score} คะแนน")
+st.info(f"🏆 you got: {score} pont")
 
 if score == 4:
 st.success("🎉 You win!")
