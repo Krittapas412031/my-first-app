@@ -3,14 +3,14 @@ import streamlit as st
 st.title("⏱️word timing game")
 
 #set start 
-if "ans1_val" not in st.session_state:
-st.session_state.ans1_val = ""
+ if "ans1_val" not in st.session_state:
+   st.session_state.ans1_val = ""
 if "ans2_val" not in st.session_state:
-st.session_state.ans2_val = ""
+  st.session_state.ans2_val = ""
 if "ans3_val" not in st.session_state:
-st.session_state.ans1_val = ""
+  st.session_state.ans1_val = ""
 if "ans4_val" not in st.session_state:
-st.session_state.ans2_val = ""
+  st.session_state.ans2_val = ""
 
 # Clear button 
 
@@ -24,7 +24,7 @@ st.session_state.start = time.time() # start
 st.session_state.is_ended = False # ปิด Dialog
 
 # ----------------------------------------------------
-# 📌 ฟังกช์ นั MessageBox (Dialog)
+# 📌 MessageBox function (Dialog)
 # ----------------------------------------------------
 
 @st.dialog("📊 game result")
@@ -33,8 +33,8 @@ st.balloons()
 score = 0
 u_ans1 = ans1.strip().lower()
 u_ans2 = ans2.strip().lower()
-u_ans1 = ans3.strip().lower()
-u_ans2 = ans4.strip().lower()
+u_ans3 = ans3.strip().lower()
+u_ans4 = ans4.strip().lower()
 
 # line 1 check
 if u_ans1 == "apple":
