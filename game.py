@@ -39,9 +39,8 @@ u_ans4 = ans4.strip().lower()
 # line 1 check
 if u_ans1 == "apple":
    st.success("✅ 1: Correct")
-score += 1
-else:
-st.error(f"❌ 1: Wrong (you use '{u_ans1}')")
+score += 1 
+else: st.error(f"❌ 1: Wrong (you use '{u_ans1}')")
 
 # line 2 check
 if u_ans2 == "bone":
