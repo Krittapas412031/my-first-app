@@ -15,11 +15,11 @@ if "ans4_val" not in st.session_state:
 # Clear button 
 
 def reset_game():
-st.session_state.ans1_val = "" # clear word line 1 
-st.session_state.ans2_val = "" # clear word line 2
-st.session_state.ans3_val = "" # clear word line 3
-st.session_state.ans4_val = "" # clear word line 4
-st.session_state.start = time.time() # start
+   st.session_state.ans1_val = "" # clear word line 1 
+   st.session_state.ans2_val = "" # clear word line 2
+   st.session_state.ans3_val = "" # clear word line 3
+   st.session_state.ans4_val = "" # clear word line 4
+   st.session_state.start = time.time() # start
 
 st.session_state.is_ended = False # ปิด Dialog
 
