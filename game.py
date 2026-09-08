@@ -79,7 +79,8 @@ if time_left > 0:
 else:
    st.session_state.is_ended = True
    st.rerun()
-   st.divider()
+   
+st.divider()
 
 # 3. answer input 
 ans1 = st.text_input(
@@ -90,10 +91,10 @@ ans2 = st.text_input(
 value=st.session_state.ans2_val,)
 ans3 = st.text_input(
 "ขอ้ 3: The `d_c__r` can cure patience ",
-value=st.session_state.ans1_val,)
+value=st.session_state.ans3_val,)
 ans4 = st.text_input(
 "ขอ้ 4: Be quiet, the `st_d_nt` are learning. ",
-value=st.session_state.ans2_val,)
+value=st.session_state.ans4_val,)
 
 # update new input
 st.session_state.ans1_val = ans1
