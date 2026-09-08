@@ -112,6 +112,6 @@ if "start" in st.session_state and not st.session_state.get("is_ended", False):
 
 # 5. Show Result dialogue
 if st.session_state.get("is_ended", False):
-   show_result_dialog(ans1, ans2, ans3, ans4)
+  show_result_dialog(ans1, ans2, ans3, ans4)
 st.divider()
 st.write("นายกฤตภาส สายทอง ม.4/12 เลขที่36") 
