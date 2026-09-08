@@ -1,117 +1,143 @@
 import time
 import streamlit as st
-st.title("⏱️word timing game")
 
-#set start 
+st.title("⏱️ Word Timing Game")
+
+# Initialize Session State Variables
 if "ans1_val" not in st.session_state:
-  st.session_state.ans1_val = ""
+    st.session_state.ans1_val = ""
 if "ans2_val" not in st.session_state:
-  st.session_state.ans2_val = ""
+    st.session_state.ans2_val = ""
 if "ans3_val" not in st.session_state:
-  st.session_state.ans3_val = ""
+    st.session_state.ans3_val = ""
 if "ans4_val" not in st.session_state:
-  st.session_state.ans4_val = ""
+    st.session_state.ans4_val = ""
+if "is_ended" not in st.session_state:
+    st.session_state.is_ended = False
 
-# Clear button 
-
+# Function to reset the game state
 def reset_game():
-   st.session_state.ans1_val = "" # clear word line 1 
-   st.session_state.ans2_val = "" # clear word line 2
-   st.session_state.ans3_val = "" # clear word line 3
-   st.session_state.ans4_val = "" # clear word line 4
-   st.session_state.start = time.time() # start
-
-st.session_state.is_ended = False # ปิด Dialog
+    st.session_state.ans1_val = ""
+    st.session_state.ans2_val = ""
+    st.session_state.ans3_val = ""
+    st.session_state.ans4_val = ""
+    st.session_state.start = time.time()
+    st.session_state.is_ended = False
 
 # ----------------------------------------------------
-# 📌 MessageBox function (Dialog)
+# 📌 MessageBox Function (Dialog)
 # ----------------------------------------------------
-
-@st.dialog("📊 game result")
+@st.dialog("📊 Game Result")
 def show_result_dialog(ans1, ans2, ans3, ans4):
-  st.balloons()
-  score = 0
-  u_ans1 = ans1.strip().lower()
-  u_ans2 = ans2.strip().lower()
-  u_ans3 = ans3.strip().lower()
-  u_ans4 = ans4.strip().lower()
-  # line 1 check
-  if u_ans1 == "apple":
-    st.success("✅ 1: Correct")
-    score += 1
-  else:
-    st.error(f"❌ 1: Wrong (you use '{u_ans1}')")
-    # line 2 check
+    st.balloons()
+    score = 0
+    u_ans1 = ans1.strip().lower()
+    u_ans2 = ans2.strip().lower()
+    u_ans3 = ans3.strip().lower()
+    u_ans4 = ans4.strip().lower()
+
+    # Question 1 Check
+    if u_ans1 == "apple":
+        st.success("✅ ข้อ 1: Correct")
+        score += 1
+    else:
+        st.error(f"❌ ข้อ 1: Wrong (you entered '{u_ans1}')")
+
+    # Question 2 Check
     if u_ans2 == "bone":
-      st.success("✅ 2: Correct")
-      score += 1
+        st.success("✅ ข้อ 2: Correct")
+        score += 1
     else:
-      st.error(f"❌ ข้อ 2: Wrong (you use '{u_ans2}')")
-      # student custom question
+        st.error(f"❌ ข้อ 2: Wrong (you entered '{u_ans2}')")
+
+    # Question 3 Check
     if u_ans3 == "doctor":
-      st.success("✅ 3: Correct")
-      score += 1
+        st.success("✅ ข้อ 3: Correct")
+        score += 1
     else:
-      st.error(f"❌ 3: Wrong (you use '{u_ans3}')")
-      # line 2 check
+        st.error(f"❌ ข้อ 3: Wrong (you entered '{u_ans3}')")
+
+    # Question 4 Check
     if u_ans4 == "student":
-      st.success("✅ 4: Correct")
-      score += 1
+        st.success("✅ ข้อ 4: Correct")
+        score += 1
     else:
-      st.error(f"❌ 4: Wrong (you use '{u_ans4}')")
-      
-      st.info(f"🏆 you got: {score} pont")
-      if score == 4:
-        st.success("🎉 You win!") 
-      else:
+        st.error(f"❌ ข้อ 4: Wrong (you entered '{u_ans4}')")
+
+    # Final Score
+    st.divider()
+    st.info(f"🏆 You scored: {score} / 4 points")
+    if score == 4:
+        st.success("🎉 You win!")
+    else:
         st.error("💀 Bruh")
 
 # ----------------------------------------------------
-#1 play button
+# 1. Play Button
 # ----------------------------------------------------
-st.button("🎮 Play", on_click=reset_game) 
+st.button("🎮 Play", on_click=reset_game)
 
-# 2. countdown shows
-if "start" in st.session_state and not st.session_state.get("is_ended", False):
-  time_left = int(30 - (time.time() - st.session_state.start))
-  if time_left > 0:
-    st.error(f"⏳: {time_left} second left")
-  else:
-    st.session_state.is_ended = True
-    st.rerun()
+# ----------------------------------------------------
+# 2. Countdown Display
+# ----------------------------------------------------
+if "start" in st.session_state and not st.session_state.is_ended:
+    time_left = int(30 - (time.time() - st.session_state.start))
+    if time_left > 0:
+        st.error(f"⏳ Time Left: {time_left} seconds")
+    else:
+        st.session_state.is_ended = True
+        st.rerun()
+
 st.divider()
 
-# 3. answer input 
+# ----------------------------------------------------
+# 3. Answer Inputs
+# ----------------------------------------------------
 ans1 = st.text_input(
-"ขอ้ 1: An `a _ _ l e` fall form the tree ", 
-value=st.session_state.ans1_val,)
+    "ข้อ 1: An `a _ _ l e` fell from the tree.",
+    value=st.session_state.ans1_val,
+    key="input1"
+)
 ans2 = st.text_input(
-"ขอ้ 2: Dogs love to eat `b__e`. ",
-value=st.session_state.ans2_val,)
+    "ข้อ 2: Dogs love to eat `b _ _ e`.",
+    value=st.session_state.ans2_val,
+    key="input2"
+)
 ans3 = st.text_input(
-"ขอ้ 3: The `d_c__r` can cure patience ",
-value=st.session_state.ans3_val,)
+    "ข้อ 3: The `d _ c _ _ r` can cure patients.",
+    value=st.session_state.ans3_val,
+    key="input3"
+)
 ans4 = st.text_input(
-"ขอ้ 4: Be quiet, the `st_d_nt` are learning. ",
-value=st.session_state.ans4_val,)
+    "ข้อ 4: Be quiet, the `st _ d _ nt` is learning.",
+    value=st.session_state.ans4_val,
+    key="input4"
+)
 
-# update new input
+# Sync inputs to session state
 st.session_state.ans1_val = ans1
 st.session_state.ans2_val = ans2
-# student's custom question
 st.session_state.ans3_val = ans3
 st.session_state.ans4_val = ans4
 
-# 4. Enter button
-if "start" in st.session_state and not st.session_state.get("is_ended", False):
-   if st.button("📥 Enter"):
-     st.session_state.is_ended = True
-     st.rerun()
-     time.sleep(1)
-     st.rerun()
+# ----------------------------------------------------
+# 4. Enter / Submit Button
+# ----------------------------------------------------
+if "start" in st.session_state and not st.session_state.is_ended:
+    if st.button("📥 Enter"):
+        st.session_state.is_ended = True
+        st.rerun()
 
-# 5. Show Result dialogue
-if st.session_state.get("is_ended", False):
-  show_result_dialog(ans1, ans2, ans3, ans4)
+# ----------------------------------------------------
+# 5. Show Result Dialog
+# ----------------------------------------------------
+if st.session_state.is_ended:
+    show_result_dialog(
+        st.session_state.ans1_val,
+        st.session_state.ans2_val,
+        st.session_state.ans3_val,
+        st.session_state.ans4_val
+    )
+
 st.divider()
-st.write("นายกฤตภาส สายทอง ม.4/12 เลขที่36") 
+st.write("นายกฤตภาส สายทอง ม.4/12 เลขที่ 36")
