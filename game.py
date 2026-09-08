@@ -72,9 +72,9 @@ def show_result_dialog(ans1, ans2, ans3, ans4):
 st.button("🎮 Play", on_click=reset_game) 
 
 # 2. countdown shows
-  if "start" in st.session_state and not st.session_state.get("is_ended", False):
+if "start" in st.session_state and not st.session_state.get("is_ended", False):
      time_left = int(30 - (time.time() - st.session_state.start)) 
-  if time_left > 0:
+if time_left > 0:
       st.error(f"⏳: {time_left} second left")
   else:
     st.session_state.is_ended = True
