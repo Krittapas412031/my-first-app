@@ -35,41 +35,36 @@ def show_result_dialog(ans1, ans2, ans3, ans4):
   u_ans2 = ans2.strip().lower()
   u_ans3 = ans3.strip().lower()
   u_ans4 = ans4.strip().lower()
-
-# line 1 check
-if u_ans1 == "apple":
+  # line 1 check
+  if u_ans1 == "apple":
     st.success("✅ 1: Correct")
     score += 1
-else:
+  else:
     st.error(f"❌ 1: Wrong (you use '{u_ans1}')")
-
-# line 2 check
-if u_ans2 == "bone":
-    st.success("✅ 2: Correct")
-    score += 1
-else:
-    st.error(f"❌ ข้อ 2: Wrong (you use '{u_ans2}')")
-
-# student custom question
-if u_ans3 == "doctor":
-    st.success("✅ 3: Correct")
-    score += 1
-else:
-    st.error(f"❌ 3: Wrong (you use '{u_ans3}')")
-
-# line 2 check
-if u_ans4 == "student":
-    st.success("✅ 4: Correct")
-    score += 1
-else:
-    st.error(f"❌ 4: Wrong (you use '{u_ans4}')")
-
-st.info(f"🏆 you got: {score} pont")
-
-if score == 4:
-   st.success("🎉 You win!")
-else:
-   st.error("💀 Bruh")
+    # line 2 check
+    if u_ans2 == "bone":
+      st.success("✅ 2: Correct")
+      score += 1
+    else:
+      st.error(f"❌ ข้อ 2: Wrong (you use '{u_ans2}')")
+      # student custom question
+    if u_ans3 == "doctor":
+      st.success("✅ 3: Correct")
+      score += 1
+    else:
+      st.error(f"❌ 3: Wrong (you use '{u_ans3}')")
+      # line 2 check
+    if u_ans4 == "student":
+      st.success("✅ 4: Correct")
+      score += 1
+    else:
+      st.error(f"❌ 4: Wrong (you use '{u_ans4}')")
+      
+      st.info(f"🏆 you got: {score} pont")
+      if score == 4:
+        st.success("🎉 You win!") 
+      else:
+        st.error("💀 Bruh")
 
 # ----------------------------------------------------
 #1 play button
