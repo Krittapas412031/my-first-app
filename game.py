@@ -73,12 +73,12 @@ st.button("🎮 Play", on_click=reset_game)
 
 # 2. countdown shows
 if "start" in st.session_state and not st.session_state.get("is_ended", False):
-        time_left = int(30 - (time.time() - st.session_state.start)) 
+  time_left = int(30 - (time.time() - st.session_state.start)) 
 if time_left > 0:
-    st.error(f"⏳: {time_left} second left")
+  st.error(f"⏳: {time_left} second left")
 else:
-    st.session_state.is_ended = True
-    st.rerun() 
+  st.session_state.is_ended = True
+  st.rerun() 
 st.divider()
 
 # 3. answer input 
